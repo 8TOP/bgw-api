@@ -18,9 +18,12 @@
   },
   "homepage": "https://github.com/8TOP/bgw-api#readme",
   "dependencies": {
+    "async": "^3.1.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.20.0",
+    "pg": "^7.12.1"
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
