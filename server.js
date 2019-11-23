@@ -30,6 +30,7 @@ const db = knex({
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.options('*', cors());
 
 app.get('/', (req, res) => { res.send("wall backend connected.") });
 app.get('/zoneX/:x/zoneY/:y', (req, res) => load.loadHandler(req, res, db));
