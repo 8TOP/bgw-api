@@ -3,7 +3,7 @@ const async = require("async");
 const loadHandler = (req, res, db) => {
     const rune = "0123456789abcdefghijklmnopqrstuvwxyz".split("");
     const reticleZone = req.params;
-    const range = 5;
+    const range = 3;
     //
     const abacus = (firstValue, secondValue, returnInteger=false) => {
         const unPad = (value) => {
