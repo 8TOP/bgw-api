@@ -5,17 +5,28 @@ const load = require('./controllers/load');
 const create = require('./controllers/create');
 const knex = require('knex');
 
-const db = knex({
-    client: 'pg',
-    connection: {
+const port = (process.env.PORT ? proess.env.PORT : 3000);
+const dbConnection = {};
+if (port === 3000) {
+    console.log("backend running on localhost");
+    dbConnection = {
         host: '127.0.0.1',
         user: 'Joshua',
         password: '',
         database: 'big-giant-wall-db'
     }
+} else {
+    dbConnection = {
+        connectionString: process.env.DATABASE_URL,
+        ssl: true
+    }
+}
+
+const db = knex({
+    client: 'pg',
+    connection: dbConnection
 });
 
-const port = (process.env.PORT ? proess.env.PORT : 3000);
 
 //db.select('*').from('content_main').then(info => console.log(info));
 
