@@ -9,6 +9,7 @@ const createHandler = (req, res, db) => {
             zonex: zonex,
             zoney: zoney,
             posted_date: new Date(),
+            posted_by: "0",
             test: test
         })
         .returning('*')
