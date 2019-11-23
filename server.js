@@ -5,7 +5,7 @@ const load = require('./controllers/load');
 const create = require('./controllers/create');
 const knex = require('knex');
 
-const port = (process.env.PORT ? proess.env.PORT : 3000);
+// const port = (process.env.PORT ? proess.env.PORT : 3000);
 // let dbConnection = {};
 // if (port === 3000) {
 //     console.log("backend running on localhost");
@@ -33,7 +33,7 @@ const db = knex({
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
-app.options('*', cors());
+// app.options('*', cors());
 
 app.get('/', (req, res) => { res.send("wall backend connected.") });
 app.get('/zoneX/:x/zoneY/:y', (req, res) => load.loadHandler(req, res, db));
