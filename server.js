@@ -24,7 +24,7 @@ if (connection === "local") {
     });
 } else {
     console.log("backend running on remote");
-    port = proess.env.PORT;
+    port = process.env.PORT;
     db = knex({
         client: 'pg',
         connection: {
