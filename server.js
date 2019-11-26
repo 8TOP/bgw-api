@@ -27,7 +27,9 @@ if (connection === "local") {
     port = proess.env.PORT;
     db = knex({
         client: 'pg',
-        connection: dbConnection
+        connection: {
+            connectionString: process.env.DATABASE_URL,
+            ssl: true
     });
 }
 
