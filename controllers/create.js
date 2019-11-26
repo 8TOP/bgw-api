@@ -1,5 +1,6 @@
 const createHandler = (req, res, db) => {
-    const { type, text_value, coordx, coordy, zonex, zoney, test } = req.body;
+    const { type, text_value, coordx, coordy, zonex, zoney, posted_by, test } = req.body;
+    console.log("Creation attempt");
     db('content_main')
         .insert({
             type: type,
@@ -9,7 +10,7 @@ const createHandler = (req, res, db) => {
             zonex: zonex,
             zoney: zoney,
             posted_date: new Date(),
-            posted_by: "0",
+            posted_by: posted_by,
             test: test
         })
         .returning('*')
@@ -17,7 +18,10 @@ const createHandler = (req, res, db) => {
             console.log("created", response);
             res.json(response[0]);
         })
-        .catch(err => res.status(400).json(err))
+        .catch(err => {
+            res.status(400).json(err);
+            console.log("there was an error", err);
+        })
 }
 
 module.exports = {
