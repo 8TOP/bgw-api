@@ -5,7 +5,7 @@ const load = require('./controllers/load');
 const create = require('./controllers/create');
 const knex = require('knex');
 
-const connection = (process.env.PORT ? "remote" : "local");
+const connection = "remote";//(process.env.PORT ? "remote" : "local");
 console.log("connection: ", connection);
 let port;
 let dbConnection;
